@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd">
+	<flow name="createcustomerFlow1" doc:id="040253d5-f58a-452b-818e-506b7de1b3c2" >
+		<vm:consume doc:name="Consume" doc:id="8b16d203-6fd8-48dc-90a7-30469f0442fc" />
+	</flow>
+	<flow name="createcustomerFlow" doc:id="58f5b133-7bcf-458f-94c2-548f10ec1d24" >
+		<logger level="INFO" doc:name="Logger" doc:id="0350be7e-35ea-493a-b322-792679ad0904" message="data from request...#[attributes.headers]"/>
+		<db:insert doc:name="customer creation" doc:id="6b9f1742-ddb7-4c15-b2ce-630d280f067e" config-ref="Database_Config">
+			<db:sql ><![CDATA[insert into customer(customer_id,customer_name,customer_mobileno,customer_aadharno)
+values(:custid,:custname,:custphoneno,:custaadhar)]]></db:sql>
+			<db:input-parameters ><![CDATA[#[{
+custid:  payload.customer_id,
+custname: payload.customer_name,
+custphoneno: payload.customer_mobileno,
+custaadhar: payload.customer_aadharno
+}]]]></db:input-parameters>
+		</db:insert>
+		<ee:transform doc:name="Transform Message" doc:id="e027e392-3724-4b96-891a-1dd8931e4eac" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	statuscode: 201,
+	message: "customer created successfully"
+	
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="deca13ed-6fe7-4b86-b0df-ed387c82a22f" message="after customer record inserted in db...."/>
+	</flow>
+</mule>

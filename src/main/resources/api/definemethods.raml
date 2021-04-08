@@ -1,0 +1,37 @@
+#%RAML 1.0
+title: sample BankingApi
+mediaType: 
+- application/json
+
+/customer:
+  post:
+    body:
+      
+      application/json:
+    responses:
+      201:
+        body:
+          application/json:
+         
+        
+  /{customer_id}/{customer_name}:
+   get:
+     responses:
+       200:
+        body:
+   patch:
+      responses:
+        204:
+         body:
+           application/xml:
+   delete:
+       responses:
+         200:
+           body:
+             
+         
+         
+/account:
+  /{account_id}:
+/transaction:
+  /{transaction_id}:
