@@ -1,0 +1,29 @@
+ [
+    {
+		"productId": 1001,
+		"productName": "Dell Studio",
+		"brand": "DELL",
+		"originalPrice": 1000,
+		"images":[
+					"image1.jpeg",
+					"image2.jpeg"
+				 ]
+	},
+	{
+		"productId": 2001,
+		"productName": "HP Pavilon",
+		"brand": "HP",
+		"originalPrice": 1100,
+		"offer": {
+			"offerPrice": 1000,
+			"offerValid": "31-May-2020"
+		},
+		"images":[
+					"image3.jpeg",
+					"image4.jpeg"
+				 ]
+
+	}
+]
+
+

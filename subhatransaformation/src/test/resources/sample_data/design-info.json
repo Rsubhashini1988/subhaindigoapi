@@ -1,0 +1,26 @@
+{
+  "sampleData": {
+    "ff93dc33-a6e7-4916-8429-ff369351de10": {
+      "payload": "sample_data/java.dwl"
+    },
+    "374fbf19-baef-4482-bba0-770a919b17fd": {
+      "payload": "sample_data/java_1.dwl"
+    },
+    "229ec415-fe9c-4fd0-9e24-3763a3625a46": {
+      "payload": "sample_data/java_2.dwl"
+    },
+    "96bd5692-edea-4690-af76-44b096d23852": {
+      "payload": "sample_data/list_json.json"
+    },
+    "04f302f1-9da3-4dd4-9eeb-d6e9561a1cfd": {
+      "payload": "sample_data/list_json_1.json"
+    },
+    "5ed20993-d486-4855-a516-02a82c8222ca": {
+      "payload": "sample_data/json.json"
+    },
+    "f0f00f67-5d4d-4a57-8c47-a1b32211021a": {
+      "payload": "sample_data/list_json_2.json",
+      "attributes": "sample_data/httprequestattributes.dwl"
+    }
+  }
+}
